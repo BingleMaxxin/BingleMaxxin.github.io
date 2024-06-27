@@ -33,10 +33,18 @@
             text-decoration: none;
             font-weight: bold;
         }
-        img {
+        .blue-text {
+            color: blue;
+        }
+        img.profile {
             width: 150px;
             height: 250px; /* Adjusted height */
             border: 5px solid black;
+            margin-top: 20px;
+        }
+        img.cavern {
+            width: 100%;
+            height: auto;
             margin-top: 20px;
         }
     </style>
@@ -44,13 +52,14 @@
 <body>
     <div class="container">
         <h1>FartAss McHighRise</h1>
-        <img src="profile.jpg" alt="Profile Picture">
+        <img src="profile.jpg" alt="Profile Picture" class="profile">
         <h2>About Me</h2>
         <p>Hi! I'm FartAss McHighRise. I am passionate about making an impact in my community, especially in the areas of health and wellness. I believe in the power of building good relationships and am committed to helping people improve their lives through dedicated service and support. Ask me about my potions, incantations, tinctures, and trinkets!</p>
         
         <div class="contact">
             <h2>Contact</h2>
-            <p>If you'd like to get in touch, please feel free to <a href="mailto:fartass.mchighrise@example.com">Meet me in the caverns below the valley</a>.</p>
+            <p>If you'd like to get in touch, please feel free to <span class="blue-text">meet me in the caverns below the valley</span>.</p>
+            <img src="2162ac13-d960-4dcc-bd37-0b651e9bc9c8.webp" alt="Cavern" class="cavern">
         </div>
     </div>
 </body>
