@@ -112,22 +112,24 @@
     </style>
     <script>
         function askOracle() {
-            const userName = document.getElementById('user-name').value.trim();
+            const userName = prompt("Please enter your name:");
             if (!userName) {
-                alert("Please enter your name.");
+                alert("Name is required to proceed.");
                 return;
             }
             const titles = ["the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly"];
             const randomTitle = titles[Math.floor(Math.random() * titles.length)];
             const personalizedName = `${userName} ${randomTitle}`;
 
-            const question = document.getElementById('oracle-question').value.toLowerCase().trim();
+            const question = document.getElementById('oracle-question').value.toLowerCase();
             if (!question) {
-                alert("Please enter a question.");
+                alert("Question is required.");
                 return;
             }
 
             let response;
+
+            // Predefined responses based on specific keywords
             if (question.includes('life')) {
                 response = 'The meaning of life is 42. And a good pair of socks.';
             } else if (question.includes('wizard')) {
@@ -139,7 +141,7 @@
             } else {
                 response = 'The Oracle says: "Your question is too profound. Try asking something simpler, like the weather."';
             }
-
+            
             document.getElementById('oracle-response').textContent = `${personalizedName}, the Oracle says: "${response}"`;
         }
     </script>
