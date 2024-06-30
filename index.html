@@ -22,6 +22,7 @@
             background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
             border: 2px solid #4b3e2f; /* Dark brown border */
             border-radius: 10px;
+            box-sizing: border-box;
         }
         h1, h2, h3 {
             margin: 20px 0;
@@ -70,6 +71,7 @@
             background: #fff;
             border: 1px solid #4b3e2f;
             border-radius: 10px;
+            box-sizing: border-box;
         }
         label {
             display: block;
@@ -82,6 +84,7 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            box-sizing: border-box;
         }
         button {
             background-color: #4b3e2f;
@@ -90,6 +93,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            box-sizing: border-box;
         }
         button:hover {
             background-color: #3a2d1f;
@@ -102,6 +106,7 @@
             margin-top: 10px;
             font-style: italic;
             color: green;
+            word-wrap: break-word; /* Ensure long words break to the next line */
         }
         img.oracle {
             width: 200px; /* Adjust as needed */
@@ -112,18 +117,18 @@
     </style>
     <script>
         function askOracle() {
-            const userName = prompt("Please enter your name:");
+            const userName = document.getElementById('user-name').value.trim();
             if (!userName) {
-                alert("Name is required to proceed.");
+                alert("Please enter your name.");
                 return;
             }
             const titles = ["the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly"];
             const randomTitle = titles[Math.floor(Math.random() * titles.length)];
             const personalizedName = `${userName} ${randomTitle}`;
 
-            const question = document.getElementById('oracle-question').value.toLowerCase();
+            const question = document.getElementById('oracle-question').value.trim().toLowerCase();
             if (!question) {
-                alert("Question is required.");
+                alert("Please enter a question.");
                 return;
             }
 
@@ -188,3 +193,5 @@
     </div>
 </body>
 </html>
+
+ 
