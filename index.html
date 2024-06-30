@@ -259,6 +259,55 @@
             <p>If you'd like to get in touch, please feel free to <a href="directions.html" target="_blank" class="blue-text">meet me in the caverns below the valley</a>.</p>
             <img src="2162ac13-d960-4dcc-bd37-0b651e9bc9c8.webp" alt="Cavern" class="cavern">
         </div>
+        // ... existing code ...
+        <img src="2162ac13-d960-4dcc-bd37-0b651e9bc9c8.webp" alt="Cavern" class="cavern">
+    </div> <!-- This is the closing tag of the contact div -->
+
+    // ... existing code ...
+    <img src="2162ac13-d960-4dcc-bd37-0b651e9bc9c8.webp" alt="Cavern" class="cavern">
+</div> <!-- This is the closing tag of the contact div -->
+
+<!-- Paste the new code here -->
+<div class="text-adventure">
+    <h2>Text Adventure Game</h2>
+    <div id="adventure-text" class="adventure-box">
+        <p>You awake up in a cold dark cave and notice you are chained to the wall.</p>
+        <p>Do you:</p>
+        <button onclick="chooseOption('A')">A. Scream for help</button>
+        <button onclick="chooseOption('B')">B. Look around the room</button>
+        <button onclick="chooseOption('C')">C. Call upon Gort Magic</button>
     </div>
+</div>
+<!-- End of new code -->
+
+</div> <!-- This is the closing tag of the main container -->
 </body>
+<script>
+function chooseOption(option) {
+let text = '';
+switch(option) {
+case 'A':
+    text = 'You scream for help, but no one responds. The cave remains silent.';
+    break;
+case 'B':
+    text = 'You look around the room and notice a rusty key within reach. You stretch out your arm as far as you can, (almost tearing your ligaments) but you manage to grab the key and unlock your shackles. What do you do now?';
+    document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+        <button onclick="chooseOption('B1')">A. Search for a light source</button>
+        <button onclick="chooseOption('B2')">B. Hit the quan out of excitement</button>`;
+    return;
+case 'C':
+    text = 'You call upon Gort Magic, and the chains shatter instantly.';
+    break;
+case 'B1':
+    text = 'You find a small flip lighter that illuminates a cave pathway.';
+    break;
+case 'B2':
+    text = 'You hit the quan so fucking hard that Michelle Obama dies.';
+    break;
+default:
+    text = 'Invalid option.';
+}
+document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>What do you do next?</p>`;
+}
+</script>
 </html>
