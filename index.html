@@ -119,12 +119,12 @@
         function askOracle() {
             const userName = document.getElementById('user-name').value.trim();
             const question = document.getElementById('oracle-question').value.trim().toLowerCase();
-
+    
             if (!userName || !question) {
                 alert("Please enter both your name and your question.");
                 return;
             }
-
+    
             const titles = [
                 "the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly", 
                 "The Disabled", "The Autistic", "the Boob Grabber", "the Cheese Grader", 
@@ -138,9 +138,8 @@
             ];
             const randomTitle = titles[Math.floor(Math.random() * titles.length)];
             const personalizedName = `${userName} ${randomTitle}`;
-
+    
             let response;
- // Predefined responses based on specific keywords
             const sexualKeywords = ['sex', 'vagina', 'boobs', 'breasts', 'fucking', 'clitoris', 'missionary', 'doggystyle'];
             const sexualResponses = [
                 "My only advice is to start punching her in the pussy honestly. I have no sex experience.",
@@ -149,8 +148,12 @@
                 "My mom had sex once, now she is dead.",
                 "Bed and breakfast make me horny!"
             ];
-            // Predefined responses based on specific keywords
-            if (question.includes('life')) {
+    
+            console.log("Question:", question); // Log the question
+            if (sexualKeywords.some(keyword => question.includes(keyword))) {
+                console.log("Sexual keyword detected"); // Log if a sexual keyword is detected
+                response = sexualResponses[Math.floor(Math.random() * sexualResponses.length)];
+            } else if (question.includes('life')) {
                 response = 'The meaning of life is something you\'ll never be able to understand.';
             } else if (question.includes('wizard')) {
                 response = 'Practice your spells daily and never skip your potion-making classes.';
