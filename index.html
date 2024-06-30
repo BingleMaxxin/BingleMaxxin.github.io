@@ -110,24 +110,77 @@
             border: 5px solid #4b3e2f; /* Dark brown border */
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/compromise/13.11.3/compromise.min.js"></script>
     <script>
         function askOracle() {
+            const userName = prompt("Please enter your name:");
+            const titles = ["the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly"];
+            const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+            const personalizedName = `${userName} ${randomTitle}`;
+
             const question = document.getElementById('oracle-question').value.toLowerCase();
             let response;
 
-            if (question.includes('life')) {
-                response = 'The meaning of life is 42. And a good pair of socks.';
-            } else if (question.includes('wizard')) {
-                response = 'Practice your spells daily and never skip your potion-making classes.';
-            } else if (question.includes('love')) {
-                response = 'Love is like a potion, sometimes it works wonders, other times it just blows up in your face.';
-            } else if (question.includes('fortune')) {
-                response = 'Your future holds many mysteries. Just make sure to avoid the enchanted goblins.';
-            } else {
-                response = 'The Oracle says: "Your question is too profound. Try asking something simpler, like the weather."';
-            }
-            
-            document.getElementById('oracle-response').textContent = response;
+            const responses = {
+                general: [
+                    'There is a bomb planted on your water heater.',
+                    'I don’t know, but there are bugs under your skin and you need to rip all your skin off to get them out.',
+                    'Why are you asking me? I’m just a bunch of code.',
+                    'Your question has summoned a demon. Good luck!',
+                    'I have no idea, but I’m pretty sure you left the oven on.'
+                ],
+                life: [
+                    'The meaning of life is 42. And a good pair of socks.',
+                    'Life is what happens when you’re busy making other plans.',
+                    'To find the meaning of life, you must first find a good sense of humor.',
+                    'Life is like a box of chocolates, you never know what you’re gonna get.'
+                ],
+                wizardry: [
+                    'Practice your spells daily and never skip your potion-making classes.',
+                    'A great wizard is made through hard work, patience, and a bit of luck.',
+                    'Remember, even the greatest wizards started as apprentices.',
+                    'Always carry a spare wand. You never know when you’ll need it.'
+                ],
+                love: [
+                    'Love is like a potion, sometimes it works wonders, other times it just blows up in your face.',
+                    'Love is the greatest magic of all, use it wisely.',
+                    'In the game of love, it’s always your move.',
+                    'Love is like a fart. If you have to force it, it’s probably crap.'
+                ],
+                fortune: [
+                    'Your future holds many mysteries. Just make sure to avoid the enchanted goblins.',
+                    'Great fortune awaits you, just beyond the next quest.',
+                    'The stars are aligned in your favor, make the most of it.',
+                    'Your fortune is like your future, both are unpredictable.'
+                ]
+            };
+
+            const keywords = {
+                life: ['life', 'existence', 'living', 'being'],
+                wizardry: ['wizard', 'magic', 'spell', 'potion', 'sorcery'],
+                love: ['love', 'romance', 'relationship', 'affection'],
+                fortune: ['fortune', 'future', 'destiny', 'luck', 'wealth']
+            };
+
+            const doc = nlp(question);
+            const terms = doc.out('terms');
+            let matchedCategory = 'general';
+
+            terms.forEach(term => {
+                for (const [category, words] of Object.entries(keywords)) {
+                    if (words.includes(term.text)) {
+                        matchedCategory = category;
+                        break;
+                    }
+                }
+            });
+
+            const randomGeneralResponse = responses.general[Math.floor(Math.random() * responses.general.length)];
+            const randomCategoryResponse = responses[matchedCategory][Math.floor(Math.random() * responses[matchedCategory].length)];
+
+            response = Math.random() > 0.5 ? randomGeneralResponse : randomCategoryResponse;
+
+            document.getElementById('oracle-response').textContent = `${personalizedName}, the Oracle says: "${response}"`;
         }
     </script>
 </head>
@@ -171,4 +224,3 @@
     </div>
 </body>
 </html>
-
