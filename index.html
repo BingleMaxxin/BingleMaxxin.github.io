@@ -148,17 +148,15 @@
         
         <div class="contact">
             <h2>Contact</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
+            <!-- Formspree contact form -->
+            <form action="https://formspree.io/f/mldreejo" method="POST">
+                <label for="email">Your email:</label>
                 <input type="email" id="email" name="email" required>
                 
-                <label for="message">Message:</label>
+                <label for="message">Your message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
                 
-                <button type="submit">Send Message</button>
+                <button type="submit">Send</button>
             </form>
             <p>If you'd like to get in touch, please feel free to <a href="directions.html" target="_blank" class="blue-text">meet me in the caverns below the valley</a>.</p>
             <img src="2162ac13-d960-4dcc-bd37-0b651e9bc9c8.webp" alt="Cavern" class="cavern">
