@@ -23,7 +23,7 @@
             border: 2px solid #4b3e2f; /* Dark brown border */
             border-radius: 10px;
         }
-        h1, h2 {
+        h1, h2, h3 {
             margin: 20px 0;
         }
         p {
@@ -62,7 +62,68 @@
             margin-top: 20px;
             cursor: pointer;
         }
+        form {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #4b3e2f;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4b3e2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3a2d1f;
+        }
+        .oracle {
+            margin-top: 40px;
+            text-align: left;
+        }
+        #oracle-response {
+            margin-top: 10px;
+            font-style: italic;
+            color: green;
+        }
     </style>
+    <script>
+        function askOracle() {
+            const question = document.getElementById('oracle-question').value.toLowerCase();
+            let response;
+
+            if (question.includes('life')) {
+                response = 'The meaning of life is 42. And a good pair of socks.';
+            } else if (question.includes('wizard')) {
+                response = 'Practice your spells daily and never skip your potion-making classes.';
+            } else if (question.includes('love')) {
+                response = 'Love is like a potion, sometimes it works wonders, other times it just blows up in your face.';
+            } else if (question.includes('fortune')) {
+                response = 'Your future holds many mysteries. Just make sure to avoid the enchanted goblins.';
+            } else {
+                response = 'The Oracle says: "Your question is too profound. Try asking something simpler, like the weather."';
+            }
+            
+            document.getElementById('oracle-response').textContent = response;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -76,9 +137,29 @@
         <a href="blog.html">
             <img src="Frog Button.png" alt="Frog Button" class="frog-button">
         </a>
+
+        <h3>Ask the Oracle</h3>
+        <div class="oracle">
+            <label for="oracle-question">Enter your question:</label>
+            <input type="text" id="oracle-question" name="oracle-question">
+            <button type="button" onclick="askOracle()">Ask</button>
+            <p id="oracle-response"></p>
+        </div>
         
         <div class="contact">
             <h2>Contact</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
             <p>If you'd like to get in touch, please feel free to <a href="directions.html" target="_blank" class="blue-text">meet me in the caverns below the valley</a>.</p>
             <img src="2162ac13-d960-4dcc-bd37-0b651e9bc9c8.webp" alt="Cavern" class="cavern">
         </div>
