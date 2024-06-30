@@ -198,6 +198,32 @@
                     "I hear unicorns taste like chicken.",
                     "I can smell colors, can you?",
                     "I've been trying to learn how to fly, but I keep falling.",
-                    "The goblins told me you're crazy.",
-                    "If you drink enough, you start seeing wizards.",
-                   
+                    "The goblins told me you're a white kid" ,
+                       ];
+                response = randomResponses[Math.floor(Math.random() * randomResponses.length)];
+            }
+
+            document.getElementById('oracle-response').textContent = `${personalizedName}, the Oracle says: ${response}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Oracle of the Shadowmoor Expanse</h1>
+        <img src="https://your-image-url.jpg" alt="Profile Picture" class="profile">
+        <p>Enter your name and question below to seek wisdom from GrimmZandel The Forsaken, High Concoctionist of the Shadowmoor Expanse!</p>
+        <form onsubmit="event.preventDefault(); askOracle();">
+            <label for="user-name">Your Name:</label>
+            <input type="text" id="user-name" name="user-name" required>
+            <label for="oracle-question">Your Question:</label>
+            <textarea id="oracle-question" name="oracle-question" rows="4" required></textarea>
+            <button type="submit">Ask the Oracle</button>
+        </form>
+        <div class="oracle">
+            <h2>Oracle's Response</h2>
+            <p id="oracle-response" class="purple-text"></p>
+        </div>
+    </div>
+    <img src="https://your-cavern-image.jpg" alt="Cavern" class="cavern">
+</body>
+</html>
