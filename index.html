@@ -298,11 +298,16 @@
                 text = 'You call upon Gort Magic, and the chains shatter instantly.';
                 break;
             case 'B1':
-                text = 'You find a small flip lighter that illuminates a cave pathway.';
-                break;
+                text = 'You find a small flip lighter that illuminates a cave pathway. You can either go left towards natural light (option A) or right towards a flame in the distance (option B).';
+                document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+                    <button onclick="chooseOption('A1')">A. Go left towards natural light</button>
+                    <button onclick="chooseOption('B1')">B. Go right towards a flame in the distance</button>`;
+                return;
             case 'B2':
                 text = 'You hit the quan so fucking hard that Michelle Obama dies.';
-                break;
+                document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+                    <button onclick="chooseOption('B1')">A. Search for a light source</button>`;
+                return;
             default:
                 text = 'Invalid option.';
         }
