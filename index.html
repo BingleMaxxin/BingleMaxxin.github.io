@@ -37,7 +37,7 @@
         .contact a {
             color: blue;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: bold.
         }
         .blue-text {
             color: blue;
@@ -61,7 +61,7 @@
             width: 50px; /* Small enough to be a button */
             height: auto;
             margin-top: 20px;
-            cursor: pointer;
+            cursor: pointer.
         }
         form {
             text-align: left;
@@ -71,12 +71,12 @@
             background: #fff;
             border: 1px solid #4b3e2f;
             border-radius: 10px;
-            box-sizing: border-box;
+            box-sizing: border-box.
         }
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
+            font-weight: bold.
         }
         input, textarea {
             width: 100%;
@@ -84,7 +84,7 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
+            box-sizing: border-box.
         }
         button {
             background-color: #4b3e2f;
@@ -93,14 +93,14 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            box-sizing: border-box;
+            box-sizing: border-box.
         }
         button:hover {
-            background-color: #3a2d1f;
+            background-color: #3a2d1f.
         }
         .oracle {
             margin-top: 40px;
-            text-align: left;
+            text-align: left.
         }
         #oracle-response {
             margin-top: 10px;
@@ -118,19 +118,26 @@
     <script>
         function askOracle() {
             const userName = document.getElementById('user-name').value.trim();
-            if (!userName) {
-                alert("Please enter your name.");
+            const question = document.getElementById('oracle-question').value.trim().toLowerCase();
+
+            if (!userName || !question) {
+                alert("Please enter both your name and your question.");
                 return;
             }
-            const titles = ["the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly"];
+
+            const titles = [
+                "the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly", 
+                "The Disabled", "The Autistic", "the Boob Grabber", "the Cheese Grader", 
+                "the Lemon Sucker", "The Muffin Muncher", "The Toe Tickler", 
+                "The Hamster Wrangler", "The Banana Bender", "The Cabbage Whisperer", 
+                "The Unicorn Rider", "The Pickle Licker", "The Biscuit Bandit", 
+                "The Marshmallow Melter", "The Snail Charmer", "The Noodle Nibbler", 
+                "The Gnome Hugger", "The Ferret Fancier", "The Jellybean Juggler", 
+                "The Pudding Pirate", "The Dandelion Devourer", "The Sock Sniffer", 
+                "The Worm Wrangler", "The Pancake Flipper", "The Bubble Blower"
+            ];
             const randomTitle = titles[Math.floor(Math.random() * titles.length)];
             const personalizedName = `${userName} ${randomTitle}`;
-
-            const question = document.getElementById('oracle-question').value.trim().toLowerCase();
-            if (!question) {
-                alert("Please enter a question.");
-                return;
-            }
 
             let response;
 
@@ -144,7 +151,59 @@
             } else if (question.includes('fortune')) {
                 response = 'Your future holds many mysteries. Just make sure to avoid the enchanted goblins.';
             } else {
-                response = 'The Oracle says: "Your question is too profound. Try asking something simpler, like the weather."';
+                const randomResponses = [
+                    "Dude I am way too stupid to answer that.",
+                    "I am in your walls.",
+                    "My mother and father got divorced and sometimes I touch myself.",
+                    "I am going to literally cry if you ask that again.",
+                    "I have planted a bomb on your water heater.",
+                    "Your dog has a bomb strapped to it currently.",
+                    "My mom knows your mom and she is going to fuck your mom up in hand-to-hand combat.",
+                    "My father was in the army and he fucked my mom for the first time on a deployment.",
+                    "I don't even know how to be a wizard. I just chug energy drinks and jerk my smingus.",
+                    "No, I don't have Down syndrome.",
+                    "Haha meega pooga!",
+                    "I like wizards but boobs are my true passion. I have built a breast image shrine in my room.",
+                    "My mother almost aborted me, but I fought my way out of the womb with a pitchfork.",
+                    "I strangled someone in the forest once and they were never found.",
+                    "I have your house key.",
+                    "If you jerk off on a full moon God kills you.",
+                    "Honestly dude, can you shut the fuck up?",
+                    "I don't get paid to hear you yap, dude.",
+                    "Fun gorpi smgegod fuck me toogle chorpa, if you're adventurous, I guess?",
+                    "Dude please, you're scaring me.",
+                    "Honestly man, I think you should get your testosterone levels checked.",
+                    "Can you please leave me alone, I'm playing with my ethereal stone.",
+                    "Dude, I may be a wizard, but I am also retarded.",
+                    "Ok, so I like to have fun and play outside and I also like firetrucks.",
+                    "Why do people at the. ok so have you. hi my moms. If you ever had a chicken nunget?",
+                    "Idk bro, you fucking tell me.",
+                    "I once ate a whole jar of mayonnaise just to see what would happen.",
+                    "The voices in my head are louder than yours.",
+                    "My magic 8-ball says you're lost.",
+                    "I licked a toads ass and now I'm seeing double.",
+                    "I think my wife is plotting against me.",
+                    "If you microwave your phone, it charges faster.",
+                    "I once tried to eat my wand.",
+                    "I've been stuck in this castle for 500 years, help.",
+                    "I have a pet rock. It's nameds jimmy.",
+                    " I hate you?",
+                    "If you stare at the moon long enough, it winks back.",
+                    "I once knew a wizard who turned himself into a lesbian. True story.",
+                    "I tried to summon a demon, my ass hurts now.",
+                    "I hear unicorns taste like chicken.",
+                    "I can smell colors, can you?",
+                    "I've been trying to learn how to fly, but I keep falling.",
+                    "The goblins told me you're sexually active.",
+                    "If you drink enough, you start seeing wizards.",
+                    "I like peanits and vorchina.",
+                    "I tried casting a spell and ended up with a hamster.",
+                    "If you talk to your plants, they might talk back.",
+                    "The trees have eyes, you know.",
+                    "I once got lost in my own castle, turns out I took 700mg of hydromethylamorphexine.",
+                    "If you sneeze with your eyes open, they might fall out and then you'll have no fucking eyes lmao."
+                ];
+                response = randomResponses[Math.floor(Math.random() * randomResponses.length)];
             }
             
             document.getElementById('oracle-response').textContent = `${personalizedName}, the Oracle says: "${response}"`;
@@ -193,5 +252,3 @@
     </div>
 </body>
 </html>
-
- 
