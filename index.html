@@ -118,28 +118,19 @@
     <script>
         function askOracle() {
             const userName = document.getElementById('user-name').value.trim();
-            const question = document.getElementById('oracle-question').value.trim().toLowerCase();
-
-            if (!userName || !question) {
-                alert("Please enter both your name and your question.");
+            if (!userName) {
+                alert("Please enter your name.");
                 return;
             }
-
-            const titles = [
-                "the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly", 
-                "The Disabled", "The Autistic", "the Hogfucker", "the Ass Stimulator", 
-                "the Boob Grabber", "the Cheese Grader", "the Lemon Sucker", 
-                "the Aunt Fucker", "the Cousin Fucker", "the Dog Fucker",
-                "The Muffin Muncher", "The Toe Tickler", "The Hamster Wrangler", 
-                "The Banana Bender", "The Cabbage Whisperer", "The Unicorn Rider", 
-                "The Pickle Licker", "The Biscuit Bandit", "The Marshmallow Melter", 
-                "The Snail Charmer", "The Noodle Nibbler", "The Gnome Hugger", 
-                "The Ferret Fancier", "The Jellybean Juggler", "The Pudding Pirate", 
-                "The Dandelion Devourer", "The Sock Sniffer", "The Worm Wrangler", 
-                "The Pancake Flipper", "The Bubble Blower"
-            ];
+            const titles = ["the Gay", "the Forsaken", "the Peehead", "the Brave", "the Silly"];
             const randomTitle = titles[Math.floor(Math.random() * titles.length)];
             const personalizedName = `${userName} ${randomTitle}`;
+
+            const question = document.getElementById('oracle-question').value.trim().toLowerCase();
+            if (!question) {
+                alert("Please enter a question.");
+                return;
+            }
 
             let response;
 
@@ -153,77 +144,54 @@
             } else if (question.includes('fortune')) {
                 response = 'Your future holds many mysteries. Just make sure to avoid the enchanted goblins.';
             } else {
-                const randomResponses = [
-                    "Dude I am way too fucking stupid to answer that.",
-                    "I am in your fucking walls.",
-                    "My mother and father got divorced and sometimes I touch myself.",
-                    "I am going to literally kill myself if you ask that again.",
-                    "I have planted a bomb on your water heater.",
-                    "Your dog has an explosive device strapped to it currently.",
-                    "My mom knows your mom and she is going to fuck your mom up in hand-to-hand combat.",
-                    "My father was in the army and he fucked my mom for the first time on a deployment.",
-                    "I don't even know how to be a wizard. I just chug Monster Energy drinks and jerk off.",
-                    "No, I don't have Down syndrome.",
-                    "Haha meega pooga!",
-                    "I like wizards but boobs are my true passion. I have built a boob shrine in my room.",
-                    "My mother almost aborted me, but I fought my way out of the womb with a pitchfork.",
-                    "I strangled somebody in the forest once and they were never found.",
-                    "I have your house key.",
-                    "If you jerk off on a full moon, I heard God kills you.",
-                    "Honestly dude, can you shut the fuck up?",
-                    "I don't get paid to hear you fucking yap, dude.",
-                    "Anal sex can be fun, if you're gay, I guess?",
-                    "Dude please, you're scaring me.",
-                    "Honestly man, I think you should get your testosterone levels checked.",
-                    "Can you please leave me alone, I'm playing with my ethereal stone.",
-                    "Dude, I may be a wizard, but I am also retarded.",
-                    "Ok, so I like to have fun and play outside and I also like firetrucks.",
-                    "Can we blow up a mosque now?",
-                    "Why do all of the towel people in Iránia go to the cube?",
-                    "Idk bro, you tell me.",
-                    "I am going to shoot myself.",
-                    "I once ate a whole jar of mayonnaise just to see what would happen.",
-                    "The voices in my head are louder than yours.",
-                    "My magic 8-ball says you're fucked.",
-                    "I licked a toad and now I'm seeing double.",
-                    "I think my cat is plotting against me.",
-                    "If you microwave your phone, it charges faster.",
-                    "I once tried to eat my wand.",
-                    "I've been stuck in this castle for 500 years, help.",
-                    "I have a pet rock. It's smarter than you.",
-                    "Why does the sun come up? Or are the stars just pinholes in the curtain of night?",
-                    "If you stare at the moon long enough, it winks back.",
-                    "I once knew a wizard who turned himself into a toad. True story.",
-                    "I tried to summon a demon, but I got my ex instead.",
-                    "I hear unicorns taste like chicken.",
-                    "I can smell colors, can you?",
-                    "I've been trying to learn how to fly, but I keep falling.",
-                    "The goblins told me you're a white kid" ,
-                       ];
-                response = randomResponses[Math.floor(Math.random() * randomResponses.length)];
+                response = 'The Oracle says: "Your question is too profound. Try asking something simpler, like the weather."';
             }
-
-            document.getElementById('oracle-response').textContent = `${personalizedName}, the Oracle says: ${response}`;
+            
+            document.getElementById('oracle-response').textContent = `${personalizedName}, the Oracle says: "${response}"`;
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to the Oracle of the Shadowmoor Expanse</h1>
-        <img src="https://your-image-url.jpg" alt="Profile Picture" class="profile">
-        <p>Enter your name and question below to seek wisdom from GrimmZandel The Forsaken, High Concoctionist of the Shadowmoor Expanse!</p>
-        <form onsubmit="event.preventDefault(); askOracle();">
-            <label for="user-name">Your Name:</label>
-            <input type="text" id="user-name" name="user-name" required>
-            <label for="oracle-question">Your Question:</label>
-            <textarea id="oracle-question" name="oracle-question" rows="4" required></textarea>
-            <button type="submit">Ask the Oracle</button>
-        </form>
+        <h1>GrimmZandel The Forsaken, High Concoctionist of the Shadowmoor Expanse</h1>
+        <img src="profile.jpg" alt="Profile Picture" class="profile">
+        <h2>About Me</h2>
+        <p>Hello young strokers, it is I... GrimmZandel The Forsaken! Your trusted purveyor of potions, trinkets, bits, baubles, and hemmywinks. Some of you may know me because of my son, <a href="snatchbang.webp" target="_blank">SnatchBang the Demolitionist</a>. While he carries on his pursuits in linking the <a href="Asgon flame.webp" target="_blank">Flame of Asgon</a>, I am but a simple merchant who offers strong supplements to aid you in battle.</p>
+        
+        <h2>My Blog</h2>
+        <p>Click the frog below to enter my blog, <span class="purple-text">Wenches and Witchcraft</span></p>
+        <a href="blog.html">
+            <img src="Frog Button.png" alt="Frog Button" class="frog-button">
+        </a>
+
+        <h3>Ask the Oracle</h3>
+        <img src="oracle.webp" alt="Oracle" class="oracle">
         <div class="oracle">
-            <h2>Oracle's Response</h2>
-            <p id="oracle-response" class="purple-text"></p>
+            <label for="user-name">Enter your name:</label>
+            <input type="text" id="user-name" name="user-name">
+            <label for="oracle-question">Enter your question:</label>
+            <input type="text" id="oracle-question" name="oracle-question">
+            <button type="button" onclick="askOracle()">Ask</button>
+            <p id="oracle-response"></p>
+        </div>
+        
+        <div class="contact">
+            <h2>Contact</h2>
+            <!-- Formspree contact form -->
+            <form action="https://formspree.io/f/mldreejo" method="POST">
+                <label for="email">Your email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Your message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send</button>
+            </form>
+            <p>If you'd like to get in touch, please feel free to <a href="directions.html" target="_blank" class="blue-text">meet me in the caverns below the valley</a>.</p>
+            <img src="2162ac13-d960-4dcc-bd37-0b651e9bc9c8.webp" alt="Cavern" class="cavern">
         </div>
     </div>
-    <img src="https://your-cavern-image.jpg" alt="Cavern" class="cavern">
 </body>
 </html>
+
+ 
