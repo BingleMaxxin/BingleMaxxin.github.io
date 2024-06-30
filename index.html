@@ -278,6 +278,11 @@
 </div> <!-- This is the closing tag of the main container -->
 </body>
 <script>
+    let playerSkills = {
+        damage: 0,
+        hiddenItems: 0
+    };
+    
     function chooseOption(option) {
         let text = '';
         switch(option) {
@@ -295,8 +300,11 @@
                     <button onclick="chooseOption('B2')">B. Hit the quan out of excitement</button>`;
                 return;
             case 'C':
-                text = 'You call upon Gort Magic, and the chains shatter instantly.';
-                break;
+                text = 'You call upon Gort Magic, and the chains shatter instantly. You feel weak and dizzy.';
+                document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+                    <button onclick="chooseOption('C1')">A. Scrounge around on the floor</button>
+                    <button onclick="chooseOption('B1')">B. Look for a light source</button>`;
+                return;
             case 'B1':
                 text = 'You find a small flip lighter that illuminates a cave pathway. You can either go left towards natural light (option A) or right towards a flame in the distance (option B).';
                 document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
@@ -305,6 +313,30 @@
                 return;
             case 'B2':
                 text = 'You hit the quan so fucking hard that Michelle Obama dies.';
+                document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+                    <button onclick="chooseOption('B1')">A. Search for a light source</button>`;
+                return;
+            case 'C1':
+                text = 'You scrounge around on the floor and notice a rusty key. You look at your body and find that there is a key-shaped hole in the middle of your chest. Do you:';
+                document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+                    <button onclick="chooseOption('C2A')">A. Insert the key into your chest</button>
+                    <button onclick="chooseOption('B1')">B. Save the key for later</button>`;
+                return;
+            case 'C2A':
+                text = 'You insert the key into your chest and unlock a secret power. Do you:';
+                document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+                    <button onclick="chooseOption('C3A')">A. Increase your damage</button>
+                    <button onclick="chooseOption('C3B')">B. Increase your ability to find hidden items</button>`;
+                return;
+            case 'C3A':
+                playerSkills.damage += 1;
+                text = 'You have increased your damage. You feel stronger.';
+                document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
+                    <button onclick="chooseOption('B1')">A. Search for a light source</button>`;
+                return;
+            case 'C3B':
+                playerSkills.hiddenItems += 1;
+                text = 'You have increased your ability to find hidden items. You feel more perceptive.';
                 document.getElementById('adventure-text').innerHTML = `<p>${text}</p><p>Do you:</p>
                     <button onclick="chooseOption('B1')">A. Search for a light source</button>`;
                 return;
